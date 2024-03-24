@@ -26,7 +26,6 @@ start_keyboard = ReplyKeyboardMarkup(
 @dp.message_handler(text='Get metrics 📊')
 async def send_welcome(message: types.Message):
   
- 
   def get_cpu_load(): 
     return psutil.cpu_percent(interval=1) 
  
