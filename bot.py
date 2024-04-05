@@ -4,10 +4,13 @@ import psutil
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.dispatcher.filters.builtin import CommandStart
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton,ReplyKeyboardRemove
+import requests
+
 
 load_dotenv()
 
 bot = Bot(os.environ['TOKEN'])
+chat_id = os.environ['CHAT_ID']
 dp = Dispatcher(bot)
 
 start_keyboard = ReplyKeyboardMarkup(
