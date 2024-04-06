@@ -4,7 +4,6 @@ import psutil
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.dispatcher.filters.builtin import CommandStart
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton,ReplyKeyboardRemove
-import requests
 
 
 load_dotenv()
