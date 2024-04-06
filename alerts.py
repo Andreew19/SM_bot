@@ -12,6 +12,12 @@ chat_id = os.environ['CHAT_ID']
 
 print("Alerts up!")
 
+def connect_success():
+    alert_connection = f"https://api.telegram.org/bot{bot}/sendMessage?chat_id={chat_id}&text=Уведомления подключены успешно ✅"
+    print(requests.post(alert_connection))
+    
+connect_success()
+
 def send_alerts():
     def is_disk_full(disk_usage):
         return disk_usage.percent >= 80
