@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import pymongo 
 import psutil
+from datetime import *
+
 
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client["SMB"]
@@ -30,6 +32,7 @@ load = {
     "disk_total_gigabyte": hdd.total / (2**30),
     "disk_used_gigabyte": hdd.used / (2**30),
     "disk_free_gigabyte": hdd.free / (2**30),
+    "create_at": datetime.now()
 }
 
 
