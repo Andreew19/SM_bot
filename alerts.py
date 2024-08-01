@@ -2,6 +2,7 @@ import requests
 import os
 import time
 import psutil  
+import atexit
 
 from dotenv import load_dotenv
 
@@ -48,6 +49,7 @@ def send_alerts():
         if mem_info.percent > 90:
             message_cpu = f"https://api.telegram.org/bot{bot}/sendMessage?chat_id={chat_id}&text=❗ Внимание!  \n ОЗУ заполнена на: {mem_info.percent}% ⚠"
             print("RAM alert")
+
 
 while True:
     time.sleep(10)
