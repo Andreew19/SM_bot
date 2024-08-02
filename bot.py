@@ -53,24 +53,18 @@ async def send_welcome(message: types.Message):
 
 @dp.message_handler(text='Get report📝')
 async def send_report(message:types.Message):
-   
-  all_reports = []
 
-  for doc in result:
-     date = doc.get("_id")
-     cpu_load_report = doc.get("cpu")
-     Load_average_report = doc.get("load")
-     memory_report = doc.get("memory")
+   for doc in result:
+      date = doc.get("_id")
+      cpu_load_report = doc.get("cpu")
+      Load_average_report = doc.get("load")
+      memory_report = doc.get("memory")
 
 
-     report_data = [f"CPU load: {cpu_load_report}%", f"Load average: {Load_average_report}",f"Memory: {memory_report}%"]
-     process_report_data = "\n".join(report_data)
-      
-     all_reports.append(f"*Report of: *{date} \n {process_report_data}")
+      report_data = [f"CPU load percent: {cpu_load_report}", f"Load average: {Load_average_report}",f"Memory: {memory_report}"]
+      process_report_data = "\n".join(report_data)
 
-  final_report = "\n\n\n".join(all_reports)
-
-  await message.answer(final_report, parse_mode='markdown', reply_markup=start_keyboard)
+   await message.answer(f"*Report of: *{date} \n\n {process_report_data}", parse_mode='markdown', reply_markup=start_keyboard)
 
 
 

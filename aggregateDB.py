@@ -1,6 +1,17 @@
 import pymongo 
+import requests
+import os
 from datetime import timedelta, datetime
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
+bot = os.environ['TOKEN']
+chat_id_user_one = os.environ['USER_1']
+chat_id_user_tow = os.environ['USER_2']
+
+chat_ids = [chat_id_user_one, chat_id_user_tow]
 
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client["SMB"]
@@ -57,3 +68,21 @@ pipeline = [
 ]
 
 result = server_load.aggregate(pipeline)
+
+
+for doc in result:
+      date = doc.get("_id")
+      cpu_load_report = doc.get("cpu")
+      Load_average_report = doc.get("load")
+      memory_report = doc.get("memory")
+
+
+      report_data = [f"CPU load percent: {cpu_load_report}", f"Load average: {Load_average_report}",f"Memory: {memory_report}"]
+      process_report_data = "\n".join(report_data)
+
+
+
+for chat_id in chat_ids:
+    send_data_wrapper = f"✅ Report of: {date} \n\n {process_report_data}"
+    get_report = f"https://api.telegram.org/bot{bot}/sendMessage?chat_id={chat_id}&text={send_data_wrapper}"
+    requests.post(get_report)
