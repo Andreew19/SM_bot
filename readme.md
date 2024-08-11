@@ -1,3 +1,8 @@
+
+![SMB_Photo_banner](https://github.com/user-attachments/assets/e322c371-2b68-437e-93d2-c73dbea0d14f)
+
+
+
 # Server Monitor Bot (SMB)🤖
 
 Быстрая и легковесная система мониторинга  в вашем любимом мессенджере Telegram под управлением чат-бота!
