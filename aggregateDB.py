@@ -9,9 +9,9 @@ load_dotenv()
 
 bot = os.environ['TOKEN']
 chat_id_user_one = os.environ['USER_1']
-chat_id_user_tow = os.environ['USER_2']
+#chat_id_user_tow = os.environ['USER_2'] if have more users
 
-chat_ids = [chat_id_user_one, chat_id_user_tow]
+chat_ids = [chat_id_user_one]
 
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client["SMB"]

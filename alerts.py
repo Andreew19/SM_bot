@@ -2,7 +2,6 @@ import requests
 import os
 import time
 import psutil  
-import atexit
 
 from dotenv import load_dotenv
 
@@ -10,10 +9,11 @@ load_dotenv()
 
 bot = os.environ['TOKEN']
 chat_id_user_one = os.environ['USER_1']
-chat_id_user_tow = os.environ['USER_2']
+#chat_id_user_tow = os.environ['USER_2'] if have more users
 
-chat_ids = [chat_id_user_one, chat_id_user_tow]
+chat_ids = [chat_id_user_one]
 
+print("If You use: installer.py or AutoRun.py. Please - press Ctrl+a, and then Ctrl+d. For continue the programm")
 print("Alerts up!")
 
 
