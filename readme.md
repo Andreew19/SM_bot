@@ -4,6 +4,7 @@
 
 
 # Server Monitor Bot (SMB)🤖
+![Python](https://img.shields.io/badge/python-3.10.11-green) ![MongoDB](https://img.shields.io/badge/mongoDB-4.4.22-green) ![psutil 5.9.8](https://img.shields.io/badge/psutil-5.9.8-blue) ![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-orange)
 
 Быстрая и легковесная система мониторинга  в вашем любимом мессенджере Telegram под управлением чат-бота!
 
@@ -17,8 +18,8 @@
 + Ежедневный отчет со средней нагрузкой и другими показателями 
 
 ## Системные требования
-+ Ubuntu server, версией не ниже 22.04  
-+ Интерепритатор python, версией не ниже 3.10.12  
++ Ubuntu server, версии не ниже 22.04  
++ интерпретатор python, версии не ниже 3.10.12  
 
 ## Установка
 
