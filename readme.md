@@ -4,7 +4,7 @@
 
 
 # Server Monitor Bot (SMB)🤖
-![Python](https://img.shields.io/badge/python-3.10.11-green) ![MongoDB](https://img.shields.io/badge/mongoDB-4.4.22-green) ![psutil 5.9.8](https://img.shields.io/badge/psutil-5.9.8-blue) ![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-orange)
+![Python](https://img.shields.io/badge/python-3.10.11-green) ![MongoDB](https://img.shields.io/badge/mongoDB-4.4.22-green) ![psutil 5.9.8](https://img.shields.io/badge/psutil-5.9.8-blue) ![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-orange) ![Telegram](https://img.shields.io/badge/Telegram-Desktop-26A5E4) ![Aiogram](https://img.shields.io/badge/Aiogram-2.24-orange)
 
 Быстрая и легковесная система мониторинга  в вашем любимом мессенджере Telegram под управлением чат-бота!
 
