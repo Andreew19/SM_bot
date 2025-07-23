@@ -8,14 +8,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 bot = os.environ['TOKEN']
-chat_id_user_one = os.environ['USER_1']
-#chat_id_user_tow = os.environ['USER_2'] if have more users
-
-chat_ids = [chat_id_user_one]
-
-print("If You use: installer.py or AutoRun.py. Please - press Ctrl+a, and then Ctrl+d. For continue the programm")
+chat_id_users = os.getenv("USERS").split(",")
 print("Alerts up!")
-
 
 def send_alerts():
 
@@ -36,7 +30,7 @@ def send_alerts():
 
     mem_info = psutil.virtual_memory()
 
-    for chat_id in chat_ids:
+    for chat_id in chat_id_users:
         if is_disk_full(disk_usage):
             message_hdd = f"https://api.telegram.org/bot{bot}/sendMessage?chat_id={chat_id}&text=❗ Внимание!  \n\n Диск заполнен на 80% или более 🚧 \n Пожалуйста, освободите место!"
             requests.post(message_hdd)
