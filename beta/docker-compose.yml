@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  smbot:
+    image: smbot
+    container_name: smbot
+    environment:
+      - TOKEN=токен_бота
+      - USERS=токен_пользователя_или нескольких(пример:11111,2222,33333)
+    restart: always
