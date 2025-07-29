@@ -7,4 +7,6 @@ services:
     environment:
       - TOKEN=токен_бота
       - USERS=токен_пользователя_или нескольких(пример:11111,2222,33333)
+    volumes:
+      - ./db:/app/db
     restart: always
