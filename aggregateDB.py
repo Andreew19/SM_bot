@@ -8,15 +8,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 bot = os.environ['TOKEN']
-chat_id_user_one = os.environ['USER_1']
-#chat_id_user_tow = os.environ['USER_2'] if have more users
+chat_id_users = os.getenv("USERS").split(",")
 
-chat_ids = [chat_id_user_one]
-
-conn = sqlite3.connect("smb.db")
+conn = sqlite3.connect("/app/db/smb.db")
 cursor = conn.cursor()
 
-#date_28_days_ago = datetime.utcnow() - timedelta(days=28)
 today = datetime.utcnow().date().isoformat()
 
 
@@ -29,7 +25,7 @@ cursor.execute('''
         AVG(Load_avg_3) as avg_3,
         AVG(Memory_load_percent) as mem
     FROM server_load
-    WHERE datetime(created_at) >= ?
+    WHERE date(created_at) = ?
     GROUP BY day
     ORDER BY day ASC
 ''', (today, ))
@@ -46,8 +42,8 @@ for row in rows:
     ]
     process_report_data = "\n".join(report_data)
 
-    for chat_id in chat_ids:
-        send_data_wrapper = f"✅ Report of:MOK \n\n{process_report_data}"
+    for chat_id in chat_id_users:
+        send_data_wrapper = f"✅ Report of:{today} \n\n{process_report_data}"
         get_report = f"https://api.telegram.org/bot{bot}/sendMessage"
         requests.post(get_report, data={"chat_id": chat_id, "text": send_data_wrapper})
 
