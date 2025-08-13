@@ -17,7 +17,7 @@ today = datetime.utcnow().date().isoformat()
 
 
 cursor.execute('''
-    SELECT 
+    SELECT
         DATE(created_at) as day,
         AVG(CPU_load_percent) as cpu,
         AVG(Load_avg_1) as avg_1,

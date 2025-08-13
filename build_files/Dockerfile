@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
 WORKDIR /app
-COPY requirements.txt bot.py alerts.py DB_config.py /app/
+COPY requirements.txt bot.py alerts.py DB_config.py aggregateDB.py ini.sh  /app/
 
 # Установка необходимого
 RUN apt update && \
@@ -12,9 +12,11 @@ RUN apt update && \
     apt -y install cron && \
     apt -y install sqlite3 && \
     chmod +x DB_config.py && \
+    chmod +x aggregateDB.py &&\
+    chmod +x ini.sh &&\
     mkdir db && \
     echo "* * * * * python3 /app/DB_config.py" | crontab - &&\
+    echo "* * * * * python3 /app/aggregateDB.py" | crontab - &&\
     rm -rf /var/lib/apt/lists/*
 
-ENTRYPOINT ["bash", "-c", "python3 bot.py & python3 alerts.py & cron -f & wait"]
-
+ENTRYPOINT ["bash", "-c", "bash ini.sh & python3 bot.py & python3 alerts.py &  cron -f & wait"]
