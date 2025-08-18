@@ -15,7 +15,7 @@ RUN apt update && \
     chmod +x aggregateDB.py &&\
     chmod +x ini.sh &&\
     mkdir db && \
-    echo "* * * * * python3 /app/DB_config.py\n* * * * * python3 /app/aggregateDB.py" | crontab - &&\
+    echo "* * * * * python3 /app/DB_config.py\n0 18 * * * python3 /app/aggregateDB.py" | crontab - &&\
     rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["bash", "-c", "bash ini.sh & python3 bot.py & python3 alerts.py &  cron -f & wait"]
