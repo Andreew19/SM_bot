@@ -9,4 +9,6 @@ services:
       - USERS=токен_пользователя_или нескольких(пример:11111,2222,33333)
     volumes:
       - ./db:/app/db
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     restart: always
